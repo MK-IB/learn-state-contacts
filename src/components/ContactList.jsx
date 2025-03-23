@@ -17,8 +17,8 @@ export const ContactList = (props) => {
                 </div>
             </div>
             <div className="edit">
-              <i class="fa-solid fa-trash" style={{color:"red"}} onClick={()=>(props.onDelete(index))}/>
-              <i class="fa-solid fa-pen" style={{color:"white"}}/>
+              <i className="fa-solid fa-trash" style={{color:"red"}} onClick={()=>(props.onDelete(index))}/>
+              <i className="fa-solid fa-pen" style={{color:"white"}}/>
             </div>
             <div className="ui divider"></div>
           </div>
