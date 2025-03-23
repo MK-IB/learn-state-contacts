@@ -3,6 +3,7 @@ import "./App.css";
 import { Header } from "./components/Header";
 import { AddContact } from "./components/AddContact";
 import { ContactList } from "./components/ContactList";
+import { ContactEditModal } from "./components/ContactEditModal";
 
 function App() {
   const STORAGE_KEY = "DetailsKey";
@@ -33,6 +34,7 @@ function App() {
           <ContactList persons={person} onDelete={deleteHandler} />
         </div>
       </div>
+      <ContactEditModal/>
     </>
   );
 }
