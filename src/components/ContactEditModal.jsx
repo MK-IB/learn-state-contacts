@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { useState } from 'react';
 export const ContactEditModal = (props) => {
   const index = -1;
   const [person, setPerson] = useState({ name: "", email: "" });

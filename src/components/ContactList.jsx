@@ -1,7 +1,7 @@
 import React from "react";
 
 export const ContactList = (props) => {
-  console.log(`From CONTACTLIST- ${JSON.stringify(props.persons)}`);
+ // console.log(`From CONTACTLIST- ${JSON.stringify(props.persons)}`);
   return (
     <>
       {props.persons.map((item, index) => {
@@ -18,7 +18,7 @@ export const ContactList = (props) => {
             </div>
             <div className="edit">
               <i className="fa-solid fa-trash" style={{color:"red"}} onClick={()=>(props.onDelete(index))}/>
-              <i className="fa-solid fa-pen" style={{color:"white"}} onClick={props.showModal}/>
+              <i className="fa-solid fa-pen" style={{color:"white"}} onClick={()=>(props.showModal(item.name))}/>
             </div>
             <div className="ui divider"></div>
           </div>

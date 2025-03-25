@@ -7,6 +7,7 @@ import { ContactEditModal } from "./components/ContactEditModal";
 
 function App() {
   const STORAGE_KEY = "DetailsKey";
+  let editName = "";
   const [person, setPersonDetails] = useState(() => {
     const savedDetails = JSON.parse(localStorage.getItem(STORAGE_KEY));
     return savedDetails ? savedDetails : [];
@@ -16,7 +17,7 @@ function App() {
     setPersonDetails((prevDetails) => {
       const updatedDetails = [...prevDetails, detail];
       localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedDetails));
-      console.log(`Initial Details= ${JSON.stringify(updatedDetails)}`);
+      //console.log(`Initial Details= ${JSON.stringify(updatedDetails)}`);
       return updatedDetails;
     });
   };
@@ -27,13 +28,22 @@ function App() {
   };
 
   const [canShowModal, setShowModal] = useState(false);
-  const showModal = ()=>{
+  const showModal = (itemName)=>{
+    
+    if(!canShowModal)
+      {
+        if(!itemName) return;
+        editName = itemName;
+        console.log(`Edit name = ${editName}`);
+      }
     setShowModal(!canShowModal);
   }
 
-  const editContact = (details, index)=>{
+  const editContact = (details)=>{
     setPersonDetails((prevDetail)=>
-      prevDetail.map((item, i)=>(i === index ? details : item)));
+      //prevDetail.map((item)=>(console.log(`ITEM = ${item.name}`))));
+      prevDetail.map((item, i)=>(item.name === editName ? editName : item)));
+    showModal(false);
   }
   return (
     <>
