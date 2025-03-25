@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { Header } from "./components/Header";
 import { AddContact } from "./components/AddContact";
@@ -7,7 +7,7 @@ import { ContactEditModal } from "./components/ContactEditModal";
 
 function App() {
   const STORAGE_KEY = "DetailsKey";
-  let editName = "";
+  const [editName, setEditName] = useState("");
   const [person, setPersonDetails] = useState(() => {
     const savedDetails = JSON.parse(localStorage.getItem(STORAGE_KEY));
     return savedDetails ? savedDetails : [];
@@ -33,18 +33,34 @@ function App() {
     if(!canShowModal)
       {
         if(!itemName) return;
-        editName = itemName;
-        console.log(`Edit name = ${editName}`);
+        setEditName(itemName); // Update state instead of a variable
+        console.log(`Edit name = ${itemName}`);
       }
     setShowModal(!canShowModal);
   }
 
-  const editContact = (details)=>{
-    setPersonDetails((prevDetail)=>
-      //prevDetail.map((item)=>(console.log(`ITEM = ${item.name}`))));
-      prevDetail.map((item, i)=>(item.name === editName ? editName : item)));
+  const editContact = (details) => {
+    console.log(`New Name: ${details.name}, Edit Name: ${editName}`);
+  
+    setPersonDetails((prevDetail) =>
+      prevDetail.map((item) => {
+        console.log(`Checking item: ${item.name}`);
+        
+        if (item.name.trim().toLowerCase() === editName.trim().toLowerCase()) {
+          console.log("MATCH FOUND! Updating...");
+          return { name: details.name, email: details.email };
+        }
+  
+        return item;
+      })
+    );
     showModal(false);
-  }
+  };
+
+  useEffect(()=>{
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(person));
+  }, [person]);
+  
   return (
     <>
       <Header />
