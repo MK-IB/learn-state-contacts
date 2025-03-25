@@ -25,16 +25,26 @@ function App() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedDetail));
     setPersonDetails(updatedDetail);
   };
+
+  const [canShowModal, setShowModal] = useState(false);
+  const showModal = ()=>{
+    setShowModal(!canShowModal);
+  }
+
+  const editContact = (details, index)=>{
+    setPersonDetails((prevDetail)=>
+      prevDetail.map((item, i)=>(i === index ? details : item)));
+  }
   return (
     <>
       <Header />
       <AddContact details={showDetails} />
       <div className="contactList">
         <div className="listContainer">
-          <ContactList persons={person} onDelete={deleteHandler} />
+          <ContactList persons={person} onDelete={deleteHandler} showModal={showModal}/>
         </div>
       </div>
-      <ContactEditModal/>
+      {canShowModal && <ContactEditModal showModal={showModal} onEdit={editContact}/>}
     </>
   );
 }
