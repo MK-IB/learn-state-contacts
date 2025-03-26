@@ -64,9 +64,9 @@ function App() {
   return (
     <>
       <Header />
-      <AddContact details={showDetails} />
-      <div className="contactList">
-        <div className="listContainer">
+      <div className="mainContainer">
+        <AddContact details={showDetails} />
+        <div className="contactList">
           <ContactList persons={person} onDelete={deleteHandler} showModal={showModal}/>
         </div>
       </div>

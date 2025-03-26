@@ -19,16 +19,18 @@ export const AddContact = (props) => {
       <div className="container">
         <h2>Add Contact</h2>
         <form className="ui form" onSubmit={onSubmitForm}>
-          <div className="field">
+          <div className="">
             <label> Full Name </label>
             <input type="text" name="name" placeholder="Enter Name" 
             onChange={(e)=>{setPerson((prevValue)=>({...prevValue, name:e.target.value}))}}/>
           </div>
-          <div className="field">
+          <br/>
+          <div className="">
             <label> Email </label>
             <input type="text" name="Email" placeholder="Enter Email" 
             onChange={(e)=>{setPerson((prevValue)=>({...prevValue, email:e.target.value}))}}/>
           </div>
+          <br/>
           <button className="ui button green" type="submit">
             Add
           </button>

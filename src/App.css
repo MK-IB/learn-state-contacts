@@ -14,47 +14,59 @@
   /* border-bottom: 2px dotted black; */
 }
 .container{
-  background-color: #B97375;
+  /* background-color: #B97375; */
+  width: 40vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: large;
   color: white;
+  border-right: 1px solid #B97375;
   /* border-bottom: 1px dashed rgb(80, 80, 80); */
   padding: 2rem;
 }
-
+input{
+  height:45px;
+  background-color: #32428a;
+}
+.mainContainer{
+  height: 100vh;
+  background-color: #f9b4fb;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: large;
+  color: white;
+}
 .contactList{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items:center;
   font-size: large;
-  padding: 1rem;
+  padding: 0.25rem;
 }
 .list{
   display: flex;
   width: 100%;
-  background-color: rgb(201, 226, 248);
+  background-color: rgb(250, 205, 241);
   justify-content:space-between;
   align-items: center;
-}
-.item{
-  /* display: flex; */
-  padding: 1rem;
-  border-radius: 10px;
+  border-radius: 5px;
+  padding-left: 1rem;
 }
 .list i{
   margin-left: 1.5rem;
   padding: 0.85rem;
   border-radius: 20%;
-  background-color: #472222;
+  background-color: #32428a;
   cursor: pointer;
 }
 .edit{
-  display: flex;
-  justify-content: space-evenly;
+  /* display: flex;
+  justify-content: space-between; */
+  margin-right: 0;
 }
 
 .modalParent{

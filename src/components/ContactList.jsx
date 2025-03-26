@@ -17,7 +17,7 @@ export const ContactList = (props) => {
                 </div>
             </div>
             <div className="edit">
-              <i className="fa-solid fa-trash" style={{color:"red"}} onClick={()=>(props.onDelete(index))}/>
+              <i className="fa-solid fa-trash" style={{color:"white"}} onClick={()=>(props.onDelete(index))}/>
               <i className="fa-solid fa-pen" style={{color:"white"}} onClick={()=>(props.showModal(item.name))}/>
             </div>
             <div className="ui divider"></div>
