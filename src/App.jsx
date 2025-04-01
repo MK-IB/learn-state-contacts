@@ -4,6 +4,7 @@ import { Header } from "./components/Header";
 import { AddContact } from "./components/AddContact";
 import { ContactList } from "./components/ContactList";
 import { ContactEditModal } from "./components/ContactEditModal";
+import { AvatarSelectModal } from "./components/AvatarSelectModal";
 
 function App() {
   const STORAGE_KEY = "DetailsKey";
@@ -28,6 +29,7 @@ function App() {
   };
 
   const [canShowModal, setShowModal] = useState(false);
+  const [canShowAvatarSelection, setShowAvatarSelection] = useState(false);
   const showModal = (itemName)=>{
     
     if(!canShowModal)
@@ -61,6 +63,9 @@ function App() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(person));
   }, [person]);
   
+  const showAvatarSelection = ()=>{
+    showAvatarSelection(true);
+  }
   return (
     <>
       <Header />
@@ -71,8 +76,9 @@ function App() {
         </div>
       </div>
       {canShowModal && <ContactEditModal showModal={showModal} onEdit={editContact}/>}
+      <AvatarSelectModal/>
+      {canShowAvatarSelection && <AvatarSelectModal/>}
     </>
   );
 }
-
 export default App;

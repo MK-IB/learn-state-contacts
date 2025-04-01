@@ -31,6 +31,11 @@ export const AddContact = (props) => {
             onChange={(e)=>{setPerson((prevValue)=>({...prevValue, email:e.target.value}))}}/>
           </div>
           <br/>
+          <div className="avatar">
+            <label> Choose Avatar </label><br/>
+            <i class="fa-solid fa-user-plus"></i>
+          </div>
+          <br/>
           <button className="ui button green" type="submit">
             Add
           </button>
