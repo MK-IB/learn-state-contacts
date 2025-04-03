@@ -9,6 +9,8 @@ import { AvatarSelectModal } from "./components/AvatarSelectModal";
 function App() {
   const STORAGE_KEY = "DetailsKey";
   const [editName, setEditName] = useState("");
+  const [avatarSrc, setAvatarSrc] = useState("src/images/add-user.png");
+
   const [person, setPersonDetails] = useState(() => {
     const savedDetails = JSON.parse(localStorage.getItem(STORAGE_KEY));
     return savedDetails ? savedDetails : [];
@@ -30,8 +32,8 @@ function App() {
 
   const [canShowModal, setShowModal] = useState(false);
   const [canShowAvatarSelection, setShowAvatarSelection] = useState(false);
+
   const showModal = (itemName)=>{
-    
     if(!canShowModal)
       {
         if(!itemName) return;
@@ -40,7 +42,13 @@ function App() {
       }
     setShowModal(!canShowModal);
   }
+  const showAvatarSelectionModal = ()=>{
+    setShowAvatarSelection(!canShowAvatarSelection);
+  }
 
+  const setAvatarSource = (link)=>{
+
+  }
   const editContact = (details) => {
     console.log(`New Name: ${details.name}, Edit Name: ${editName}`);
   
@@ -70,14 +78,14 @@ function App() {
     <>
       <Header />
       <div className="mainContainer">
-        <AddContact details={showDetails} />
+        <AddContact details={showDetails} showAvatarSelectionModal = {showAvatarSelectionModal} setAvatarSource={setAvatarSource} avatarSrc={avatarSrc}/>
         <div className="contactList">
           <ContactList persons={person} onDelete={deleteHandler} showModal={showModal}/>
         </div>
       </div>
       {canShowModal && <ContactEditModal showModal={showModal} onEdit={editContact}/>}
-      <AvatarSelectModal/>
-      {canShowAvatarSelection && <AvatarSelectModal/>}
+      {/* <AvatarSelectModal/> */}
+      {canShowAvatarSelection && <AvatarSelectModal showAvatarSelectionModal = {showAvatarSelectionModal}/>}
     </>
   );
 }

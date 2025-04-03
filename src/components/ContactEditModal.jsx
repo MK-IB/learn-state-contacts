@@ -29,7 +29,7 @@ export const ContactEditModal = (props) => {
             onChange={(e)=>{setPerson((prevValue)=>({...prevValue, email:e.target.value}))}}/>
           </div>
           <div className='expanded'>
-          <button className="ui button red" type="submit" onClick={props.showModal}>Cancel</button>
+            <button className="ui button red" type="submit" onClick={props.showModal}>Cancel</button>
             <button className="ui button green" type="submit" onClick={onSubmitForm}>Done</button>
           </div>
         </form>

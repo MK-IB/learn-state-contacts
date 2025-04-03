@@ -2,7 +2,12 @@ import React from "react";
 import { useState } from "react";
 
 export const AddContact = (props) => {
-    const [person, setPerson] = useState({ name: "", email: "" });
+    const [person, setPerson] = useState({ name: "", email: "",avatar:""});
+    const avatarSourceLink = "";
+
+    const setAvatarSourceLink = () =>{
+      
+    }
     const onSubmitForm = (e)=>{
         e.preventDefault();
         if (person.name === "" || person.email === "") {
@@ -32,8 +37,8 @@ export const AddContact = (props) => {
           </div>
           <br/>
           <div className="avatar">
-            <label> Choose Avatar </label><br/>
-            <i class="fa-solid fa-user-plus"></i>
+            <label> Choose Avatar </label><br/><br/>
+            <img src={props.avatarSrc} onClick={props.showAvatarSelectionModal}/>
           </div>
           <br/>
           <button className="ui button green" type="submit">
