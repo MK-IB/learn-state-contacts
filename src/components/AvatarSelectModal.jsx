@@ -25,12 +25,16 @@ export const AvatarSelectModal = (props)=>{
                         return <AvatarSection key = {index} item={item} onAvatarSelected={onSelectAvatar}/>
                     })}
                 </div>
+<<<<<<< Updated upstream
 
                 <br/><br/>
                 <div className='expanded'>
             <button className="ui button red" type="submit" onClick={props.showAvatarSelectionModal}>Cancel</button>
             <button className="ui button green" type="submit" onClick={props.showAvatarSelectionModal}>Done</button>
           </div>
+=======
+                <button className="ui button green" type="submit">Done</button>
+>>>>>>> Stashed changes
             </div>
         </div>
     )
