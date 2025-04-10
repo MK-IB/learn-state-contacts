@@ -37,13 +37,8 @@ export const AddContact = (props) => {
           </div>
           <br/>
           <div className="avatar">
-<<<<<<< Updated upstream
             <label> Choose Avatar </label><br/><br/>
             <img src={props.avatarSrc} onClick={props.showAvatarSelectionModal}/>
-=======
-            <label> Choose Avatar </label><br/>
-            <i class="fa-solid fa-user-plus" onClick={props.showAvatarSelection}></i>
->>>>>>> Stashed changes
           </div>
           <br/>
           <button className="ui button green" type="submit">

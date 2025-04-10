@@ -72,28 +72,20 @@ function App() {
   }, [person]);
   
   const showAvatarSelection = ()=>{
-    setShowAvatarSelection(true);
+    showAvatarSelection(true);
   }
   return (
     <>
       <Header />
       <div className="mainContainer">
-<<<<<<< Updated upstream
         <AddContact details={showDetails} showAvatarSelectionModal = {showAvatarSelectionModal} setAvatarSource={setAvatarSource} avatarSrc={avatarSrc}/>
-=======
-        <AddContact details={showDetails} showAvatarSelection={showAvatarSelection}/>
->>>>>>> Stashed changes
         <div className="contactList">
           <ContactList persons={person} onDelete={deleteHandler} showModal={showModal}/>
         </div>
       </div>
       {canShowModal && <ContactEditModal showModal={showModal} onEdit={editContact}/>}
       {/* <AvatarSelectModal/> */}
-<<<<<<< Updated upstream
       {canShowAvatarSelection && <AvatarSelectModal showAvatarSelectionModal = {showAvatarSelectionModal}/>}
-=======
-      {canShowAvatarSelection && <AvatarSelectModal/>}
->>>>>>> Stashed changes
     </>
   );
 }
